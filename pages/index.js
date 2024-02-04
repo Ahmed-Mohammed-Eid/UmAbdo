@@ -23,12 +23,12 @@ export default function Home() {
                 <Image
                     src={`/IMAGES/logo-${
                         layoutConfig.colorScheme === "light"
-                            ? "dark"
+                            ? "white"
                             : "white"
-                    }.svg`}
+                    }.png`}
                     alt="Sakai logo"
                     width={300}
-                    height={75}
+                    height={300}
                 />
             </div>
         </>

@@ -87,13 +87,13 @@ const LoginPage = () => {
                     <Image
                         src={`/IMAGES/logo-${
                             layoutConfig.colorScheme === "light"
-                                ? "dark"
+                                ? "white"
                                 : "white"
-                        }.svg`}
+                        }.png`}
                         alt="Sakai logo"
-                        className="mb-5 w-6rem flex-shrink-0"
-                        width={100}
-                        height={40}
+                        className="flex-shrink-0"
+                        width={150}
+                        height={150}
                     />
                     {/*<div className="text-900 text-4xl font-medium">MANDOOB</div>*/}
                 </div>

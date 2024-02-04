@@ -21,11 +21,11 @@ const AppTopbar = forwardRef((props, ref) => {
     return (
         <div className="layout-topbar">
             <Link href="/" className="layout-topbar-logo">
-                <Image src={`/IMAGES/logo-full-${layoutConfig.colorScheme !== 'light' ? 'white' : 'dark'}.svg`} width={200} height={50} alt="logo" />
+                <Image src={`/IMAGES/logo-${layoutConfig.colorScheme !== 'light' ? 'white' : 'white'}.png`} width={50} height={50} alt="logo" />
                 {/*<span>MANDOOB</span>*/}
             </Link>
 
-            <button ref={menubuttonRef} type="button" className="p-link layout-menu-button layout-topbar-button" onClick={onMenuToggle}>
+            <button ref={menubuttonRef} type="button" className="p-link layout-menu-button layout-topbar-button ml-auto" onClick={onMenuToggle}>
                 <i className="pi pi-bars" />
             </button>
         </div>
