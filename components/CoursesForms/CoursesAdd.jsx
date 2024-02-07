@@ -22,6 +22,7 @@ const CoursesAdd = () => {
         coursePrice: "",
         file: [],
         endDate: "",
+        courseSubtitle: "",
         instructorName: "",
         totalHours: "",
         courseTitle: "",
@@ -47,6 +48,7 @@ const CoursesAdd = () => {
         // Append data to FormData object
         formData.append("parentSectionId", course.parentSectionId);
         formData.append("courseTitle", course.courseTitle);
+        formData.append("courseSubtitle", course.courseSubtitle);
         formData.append("instructorName", course.instructorName);
         formData.append("totalHours", course.totalHours);
         formData.append("endDate", course.endDate);
@@ -81,6 +83,7 @@ const CoursesAdd = () => {
                     totalHours: "",
                     courseTitle: "",
                     currency: "KWD",
+
                 });
             })
             .catch((err) => {
@@ -130,7 +133,7 @@ const CoursesAdd = () => {
                         }
                         const chapters = sections.sub.map((section) => {
                             return {
-                                label: section.sectionTitle,
+                                label: `${section.sectionTitle} (${section.sectionSubtitle})`,
                                 value: section._id,
                             };
                         });
@@ -200,6 +203,21 @@ const CoursesAdd = () => {
                     </div>
 
                     <div className="field col-12 md:col-6">
+                        <label htmlFor="courseSubtitle">Course Subtitle</label>
+                        <InputText
+                            id="courseSubtitle"
+                            value={course.courseSubtitle}
+                            onChange={(e) =>
+                                setCourse({
+                                    ...course,
+                                    courseSubtitle: e.target.value,
+                                })
+                            }
+                            placeholder="Course Subtitle"
+                        />
+                    </div>
+
+                    <div className="field col-12">
                         <label htmlFor="instructorName">Instructor Name</label>
                         <InputText
                             id="instructorName"

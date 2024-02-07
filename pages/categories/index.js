@@ -238,6 +238,17 @@ const CategoriesTable = () => {
                 />
 
                 <Column
+                    field={'sectionSubtitle'}
+                    header="Subtitle"
+                    sortable
+                    filter
+                    filterPlaceholder="Search by Subtitle"
+                    style={{
+                        minWidth: "200px",
+                    }}
+                />
+
+                <Column
                     field={"sectionType"}
                     header="Type"
                     sortable

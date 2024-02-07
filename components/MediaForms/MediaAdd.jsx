@@ -23,6 +23,7 @@ const MediaAdd = () => {
     const [course, setCourse] = useState({
         mediaType: "",
         mediaTitle: "",
+        mediaSubtitle: "",
         paymentType: "",
         sectionType: "",
         courseId: "",
@@ -49,6 +50,7 @@ const MediaAdd = () => {
         // Append data to FormData object
         formData.append("mediaType", course.mediaType);
         formData.append("mediaTitle", course.mediaTitle);
+        formData.append("mediaSubtitle", course.mediaSubtitle);
         formData.append("paymentType", course.paymentType);
         formData.append("sectionType", course.sectionType);
         if (course.courseId) {
@@ -86,6 +88,7 @@ const MediaAdd = () => {
                 setCourse({
                     mediaType: "",
                     mediaTitle: "",
+                    mediaSubtitle: "",
                     paymentType: "",
                     sectionType: "",
                     courseId: "",
@@ -156,7 +159,7 @@ const MediaAdd = () => {
                     if (sections?.courses) {
                         const subSections = sections.courses.map((section) => {
                             return {
-                                label: section.courseTitle,
+                                label: `${section.courseTitle} - (${section.courseSubtitle})`,
                                 value: section._id,
                             };
                         });
@@ -246,6 +249,21 @@ const MediaAdd = () => {
                     </div>
 
                     <div className="field col-12 md:col-6">
+                        <label htmlFor="mediaSubtitle">Media Subtitle</label>
+                        <InputText
+                            id="mediaSubtitle"
+                            value={course.mediaSubtitle}
+                            onChange={(e) =>
+                                setCourse({
+                                    ...course,
+                                    mediaSubtitle: e.target.value,
+                                })
+                            }
+                            placeholder="Media Subtitle"
+                        />
+                    </div>
+
+                    <div className="field col-12">
                         <label htmlFor="paymentType">Payment Type</label>
                         <Dropdown
                             id="paymentType"
@@ -266,7 +284,7 @@ const MediaAdd = () => {
 
                     <div className="field col-12">
                         <label htmlFor="files">Media File (Video or Document)</label>
-                        <CustomFileInput accept={'image/*,video/*,application/pdf, audio/*'}
+                        <CustomFileInput accept={'*'}
                                          handleImageChange={(files) => {
                                              // SET THE FILES
                                              setCourse({...course, file: files})

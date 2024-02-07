@@ -24,6 +24,7 @@ const CourseEdit = ({id: courseId, course: courseDataOnServer}) => {
         coursePrice: "",
         file: [],
         endDate: "",
+        courseSubtitle: "",
         instructorName: "",
         totalHours: "",
         courseTitle: "",
@@ -39,6 +40,7 @@ const CourseEdit = ({id: courseId, course: courseDataOnServer}) => {
                 coursePrice: courseDataOnServer?.coursePrice,
                 file: [],
                 endDate: courseDataOnServer?.endDate,
+                courseSubtitle: courseDataOnServer?.courseSubtitle,
                 instructorName: courseDataOnServer?.instructorName,
                 totalHours: courseDataOnServer?.totalHours,
                 courseTitle: courseDataOnServer?.courseTitle,
@@ -68,6 +70,7 @@ const CourseEdit = ({id: courseId, course: courseDataOnServer}) => {
         // Append data to FormData object
         formData.append("parentSectionId", course.parentSectionId);
         formData.append("courseTitle", course.courseTitle);
+        formData.append("courseSubtitle", course.courseSubtitle);
         formData.append("instructorName", course.instructorName);
         formData.append("totalHours", course.totalHours);
         formData.append("endDate", course.endDate);
@@ -215,6 +218,21 @@ const CourseEdit = ({id: courseId, course: courseDataOnServer}) => {
                     </div>
 
                     <div className="field col-12 md:col-6">
+                        <label htmlFor="courseSubtitle">Course Subtitle</label>
+                        <InputText
+                            id="courseSubtitle"
+                            value={course.courseSubtitle}
+                            onChange={(e) =>
+                                setCourse({
+                                    ...course,
+                                    courseSubtitle: e.target.value,
+                                })
+                            }
+                            placeholder="Course Subtitle"
+                        />
+                    </div>
+
+                    <div className="field col-12">
                         <label htmlFor="instructorName">Instructor Name</label>
                         <InputText
                             id="instructorName"
@@ -308,7 +326,7 @@ const CourseEdit = ({id: courseId, course: courseDataOnServer}) => {
                     <div className="field col-12 flex align-items-center">
                         <Checkbox
                             inputId="courseBlock"
-                            onChange={(e) =>{
+                            onChange={(e) => {
                                 setCourse({
                                     ...course,
                                     courseBlock: e.checked,

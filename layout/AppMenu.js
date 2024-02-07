@@ -41,6 +41,12 @@ const AppMenu = () => {
             ]
         },
         {
+          label: 'UI MANAGEMENT',
+          items: [
+              {label: 'Manage UI', icon: 'pi pi-id-card', to: '/ui/manage'},
+          ]
+        },
+        {
             label: 'Reports',
             items: [
                 {label: 'Reports List', icon: 'pi pi-list', to: '/reports'},

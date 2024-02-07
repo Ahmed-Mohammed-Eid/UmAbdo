@@ -105,9 +105,9 @@ const Layout = (props) => {
     return (
         <React.Fragment>
             <Head>
-                <title>Victory Academy</title>
+                <title>UM ABDULLAH - DASHBOARD</title>
                 <meta charSet="UTF-8" />
-                <meta name="description" content="Victory Academy is a platform where you can find lessons and study what you want" />
+                <meta name="description" content="UM ABDULLAH is a platform where you can find lessons and study what you want" />
                 <meta name="robots" content="index, follow" />
                 <meta name="viewport" content="initial-scale=1, width=device-width" />
                 <link rel="icon" href={`/IMAGES/logo-white.png`} type="image/x-icon"></link>

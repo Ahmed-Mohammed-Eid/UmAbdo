@@ -205,6 +205,17 @@ const CategoriesTable = () => {
                     }}
                 />
 
+                <Column
+                    field={"courseSubtitle"}
+                    header="Subtitle"
+                    sortable
+                    filter
+                    filterPlaceholder="Search by Subtitle"
+                    // MAKE THE MINIMUM WIDTH OF THE COLUMN 200PX
+                    style={{
+                        minWidth: "200px",
+                    }}
+                />
 
                 <Column
                     field={"instructorName"}

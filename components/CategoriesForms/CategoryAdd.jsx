@@ -119,7 +119,7 @@ const CategoryAdd = () => {
                         }
                         const primeSections = sections.prime.map((section) => {
                             return {
-                                label: section.sectionTitle,
+                                label: `${section.sectionTitle} - ${section?.sectionSubtitle}`,
                                 value: section._id,
                             };
                         });
@@ -133,7 +133,7 @@ const CategoryAdd = () => {
                         }
                         const chapters = sections.sub.map((section) => {
                             return {
-                                label: section.sectionTitle,
+                                label: `${section.sectionTitle} - ${section?.sectionSubtitle}`,
                                 value: section._id,
                             };
                         });
@@ -147,7 +147,7 @@ const CategoryAdd = () => {
                         }
                         const subSections = sections.courses.map((section) => {
                             return {
-                                label: section.courseTitle,
+                                label: `${section.courseTitle} - (${section?.courseSubtitle})`,
                                 value: section._id,
                             };
                         });

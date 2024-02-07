@@ -184,6 +184,14 @@ const MediaTable = () => {
                 />
 
                 <Column
+                    field="mediaSubtitle"
+                    header="Subtitle"
+                    sortable
+                    filter
+                    filterPlaceholder="Search by Subtitle"
+                />
+
+                <Column
                     field={'mediaType'}
                     header="Type"
                     sortable

@@ -149,7 +149,7 @@ const CategoryEdit = ({id, category: categoryServerData}) => {
                         }
                         const subSections = sections.courses.map((section) => {
                             return {
-                                label: section.courseTitle,
+                                label: `${section.courseTitle} - (${section?.courseSubtitle})`,
                                 value: section._id,
                             };
                         });

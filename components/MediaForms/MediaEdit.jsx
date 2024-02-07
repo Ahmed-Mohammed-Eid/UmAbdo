@@ -23,6 +23,7 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
     const [course, setCourse] = useState({
         mediaType: "",
         mediaTitle: "",
+        mediaSubtitle: "",
         paymentType: "",
         sectionType: "",
         courseId: "",
@@ -37,6 +38,7 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
             setCourse({
                 mediaType: mediaDataOnServer.mediaType,
                 mediaTitle: mediaDataOnServer.mediaTitle,
+                mediaSubtitle: mediaDataOnServer.mediaSubtitle,
                 paymentType: mediaDataOnServer.paymentType,
                 sectionType: mediaDataOnServer.courseId ? "course" : "sub",
                 courseId: mediaDataOnServer.courseId,
@@ -65,6 +67,7 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
         // Append data to FormData object
         formData.append("mediaType", course.mediaType);
         formData.append("mediaTitle", course.mediaTitle);
+        formData.append("mediaSubtitle", course.mediaSubtitle);
         formData.append("paymentType", course.paymentType);
         formData.append("sectionType", course.sectionType);
         if (course.courseId) {
@@ -163,7 +166,7 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
                     if (sections?.courses) {
                         const subSections = sections.courses.map((section) => {
                             return {
-                                label: section.courseTitle,
+                                label: `${section.courseTitle} - (${section.courseSubtitle})`,
                                 value: section._id,
                             };
                         });
@@ -253,6 +256,21 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
                     </div>
 
                     <div className="field col-12 md:col-6">
+                        <label htmlFor="mediaSubtitle">Media Subtitle</label>
+                        <InputText
+                            id="mediaSubtitle"
+                            value={course.mediaSubtitle}
+                            onChange={(e) =>
+                                setCourse({
+                                    ...course,
+                                    mediaSubtitle: e.target.value,
+                                })
+                            }
+                            placeholder="Media Subtitle"
+                        />
+                    </div>
+
+                    <div className="field col-12">
                         <label htmlFor="paymentType">Payment Type</label>
                         <Dropdown
                             id="paymentType"
@@ -273,12 +291,13 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
 
                     <div className="field col-12">
                         <label htmlFor="files">Media File (Video or Document)</label>
-                        <CustomFileInput accept={'image/*,video/*,application/pdf, audio/*'}
+                        <CustomFileInput accept={'*'}
                                          handleImageChange={(files) => {
                                              // SET THE FILES
                                              setCourse({...course, file: files})
                                          }}/>
-                        {(uploadProgress > 0 && uploadProgress < 100) && <ProgressBar value={uploadProgress} displayValueTemplate={(value) => `${value}%`} />}
+                        {(uploadProgress > 0 && uploadProgress < 100) &&
+                            <ProgressBar value={uploadProgress} displayValueTemplate={(value) => `${value}%`}/>}
                     </div>
 
                     <div className="field col-12">
