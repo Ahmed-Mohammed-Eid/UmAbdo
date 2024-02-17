@@ -79,7 +79,7 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
 
         // Append files to FormData object
         for (let i = 0; i < course.file.length; i++) {
-            formData.append("file", course.file[i]);
+            formData.append("files", course.file[i]);
         }
 
         // set the loading to true
@@ -292,6 +292,7 @@ const MediaEdit = ({id, media: mediaDataOnServer}) => {
                     <div className="field col-12">
                         <label htmlFor="files">Media File (Video or Document)</label>
                         <CustomFileInput accept={'*'}
+                                         multiple={true}
                                          handleImageChange={(files) => {
                                              // SET THE FILES
                                              setCourse({...course, file: files})

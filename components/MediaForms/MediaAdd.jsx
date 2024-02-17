@@ -4,7 +4,7 @@ import {InputNumber} from "primereact/inputnumber";
 import {Dropdown} from "primereact/dropdown";
 import {Button} from "primereact/button";
 import {ProgressSpinner} from "primereact/progressspinner";
-import { ProgressBar } from 'primereact/progressbar';
+import {ProgressBar} from 'primereact/progressbar';
 
 // NOTIFICATION
 import {toast} from "react-hot-toast";
@@ -61,7 +61,7 @@ const MediaAdd = () => {
 
         // Append files to FormData object
         for (let i = 0; i < course.file.length; i++) {
-            formData.append("file", course.file[i]);
+            formData.append("files", course.file[i]);
         }
 
         // set the loading to true
@@ -285,11 +285,13 @@ const MediaAdd = () => {
                     <div className="field col-12">
                         <label htmlFor="files">Media File (Video or Document)</label>
                         <CustomFileInput accept={'*'}
+                                         multiple={true}
                                          handleImageChange={(files) => {
                                              // SET THE FILES
                                              setCourse({...course, file: files})
                                          }}/>
-                        {(uploadProgress > 0 && uploadProgress < 100) && <ProgressBar value={uploadProgress} displayValueTemplate={(value) => `${value}%`} />}
+                        {(uploadProgress > 0 && uploadProgress < 100) &&
+                            <ProgressBar value={uploadProgress} displayValueTemplate={(value) => `${value}%`}/>}
                     </div>
 
                     <div className="field col-12">

@@ -82,7 +82,7 @@ const CourseEdit = ({id: courseId, course: courseDataOnServer}) => {
         if(course.file?.length >= 0) {
             // Append files to FormData object
             for (let i = 0; i < course.file?.length; i++) {
-                formData.append("file", course.file[i]);
+                formData.append("files", course.file[i]);
             }
         }
 

@@ -69,7 +69,7 @@ const CategoryEdit = ({id, category: categoryServerData}) => {
         formData.append("currency", category.currency);
         // Append files to FormData object
         for (let i = 0; i < category.files.length; i++) {
-            formData.append("file", category.files[i]);
+            formData.append("files", category.files[i]);
         }
 
         // set the loading to true

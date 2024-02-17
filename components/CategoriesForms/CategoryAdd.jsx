@@ -54,7 +54,7 @@ const CategoryAdd = () => {
         formData.append("sectionPrice", category.sectionPrice || 0);
         // Append files to FormData object
         for (let i = 0; i < category.files.length; i++) {
-            formData.append("file", category.files[i]);
+            formData.append("files", category.files[i]);
         }
 
         formData.append("currency", category.currency);
